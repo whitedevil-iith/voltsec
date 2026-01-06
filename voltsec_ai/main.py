@@ -106,8 +106,21 @@ def main():
     except KeyboardInterrupt:
         print("\n\nAnalysis interrupted by user.")
         sys.exit(130)
+    except ImportError as e:
+        print(f"\n\nMissing dependency: {e}")
+        print("Please install dependencies: pip install -r requirements.txt")
+        sys.exit(1)
+    except ConnectionError as e:
+        print(f"\n\nConnection error: {e}")
+        print("Please ensure Ollama is running and accessible.")
+        sys.exit(1)
+    except (OSError, IOError) as e:
+        print(f"\n\nFile system error: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
     except Exception as e:
-        print(f"\n\nError during analysis: {e}")
+        print(f"\n\nUnexpected error during analysis: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)

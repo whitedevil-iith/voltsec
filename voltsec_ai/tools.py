@@ -64,7 +64,7 @@ class CodebaseRAGTool(BaseTool):
                 )
                 docs = loader.load()
                 documents.extend(docs)
-            except Exception as e:
+            except (FileNotFoundError, PermissionError, UnicodeDecodeError, OSError) as e:
                 print(f"Warning: Error loading {ext} files: {e}")
         
         print(f"Loaded {len(documents)} documents")
@@ -84,11 +84,12 @@ class CodebaseRAGTool(BaseTool):
             model=config.ollama_model
         )
         
-        # Create vector store
+        # Create vector store with absolute path
+        persist_dir = Path(self.repo_path).absolute() / ".voltsec_ai_chroma"
         self.vectorstore = Chroma.from_documents(
             documents=splits,
             embedding=embeddings,
-            persist_directory="./.voltsec_ai_chroma"
+            persist_directory=str(persist_dir)
         )
         
         print("Codebase indexing complete!")
