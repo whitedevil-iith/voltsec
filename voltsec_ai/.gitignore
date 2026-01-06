@@ -13,13 +13,20 @@ ENV/
 pip-log.txt
 pip-delete-this-directory.txt
 
+# Setup/build
+build/
+dist/
+*.egg-info/
+
 # Vector store
 .voltsec_ai_chroma/
 
 # Reports
 voltsec_ai_report.md
-*.md
+security_*.md
+report_*.md
 !README_AI.md
+!QUICKSTART.md
 
 # Environment
 .env
