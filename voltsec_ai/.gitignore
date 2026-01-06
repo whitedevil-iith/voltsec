@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Virtual environments
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Setup/build
+build/
+dist/
+*.egg-info/
+
+# Vector store
+.voltsec_ai_chroma/
+
+# Reports
+voltsec_ai_report.md
+security_*.md
+report_*.md
+!README_AI.md
+!QUICKSTART.md
+!IMPLEMENTATION_SUMMARY.md
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
