@@ -27,6 +27,7 @@ security_*.md
 report_*.md
 !README_AI.md
 !QUICKSTART.md
+!IMPLEMENTATION_SUMMARY.md
 
 # Environment
 .env
